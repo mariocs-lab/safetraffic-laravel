@@ -1,0 +1,108 @@
+/* ==========================================================================
+   SAFE-TRAFFIC GLOBAL DESIGN SYSTEM (MINIMALIS & PROFESIONAL)
+   ========================================================================== */
+
+:root {
+    --bg-main: #090d16;
+    --bg-card: #111827;
+    --border-color: #1f2937;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-blue: #3b82f6;
+    --accent-red: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGASI MINIMALIS --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 70px;
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+nav .logo span {
+    color: var(--accent-red);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--text-main);
+}
+
+.nav-btn-lapor {
+    background-color: transparent;
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.nav-btn-lapor:hover {
+    background-color: var(--accent-red);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* --- UTILITY COMPONENTS --- */
+.container-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.page-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
