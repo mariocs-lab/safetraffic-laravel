@@ -1,5 +1,14 @@
 <?php
 
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+// Cek status maintenance
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
 // 1. Muat autoloader Composer
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -17,15 +26,13 @@ foreach ($dirs as $dir) {
 $app->useStoragePath($storage);
 // ------------------------------------------------------
 
-// 4. Jalankan aplikasi berdasarkan versi Laravel
+// 4. Jalankan aplikasi (Mendukung Laravel 10 & 11)
 if (method_exists($app, 'handleRequest')) {
-    // Untuk Laravel 11
-    $app->handleRequest(Illuminate\Http\Request::capture());
+    $app->handleRequest(Request::capture());
 } else {
-    // Untuk Laravel 10 ke bawah
     $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
     $response = $kernel->handle(
-        $request = Illuminate\Http\Request::capture()
+        $request = Request::capture()
     );
     $response->send();
     $kernel->terminate($request, $response);
